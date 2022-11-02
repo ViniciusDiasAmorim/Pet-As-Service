@@ -15,16 +15,10 @@ namespace PetAsService
             };
         }
 
-        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void buscarRaçaMenuItem_Click(object sender, EventArgs e)
         {
-
+            BuscarRacas busca = new BuscarRacas();
+            busca.Show();
         }
-
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }

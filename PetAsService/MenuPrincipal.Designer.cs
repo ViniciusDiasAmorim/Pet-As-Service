@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelTextoBemVindo = new System.Windows.Forms.Label();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.meusFavoritosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuTelaPrincipal = new System.Windows.Forms.MenuStrip();
+            this.buscarRaçaMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.meusFavoritosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelMenuPrincipal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.menuStrip2.SuspendLayout();
+            this.menuTelaPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -51,25 +51,24 @@
             resources.ApplyResources(this.labelTextoBemVindo, "labelTextoBemVindo");
             this.labelTextoBemVindo.Name = "labelTextoBemVindo";
             // 
-            // menuStrip2
+            // menuTelaPrincipal
             // 
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.meusFavoritosToolStripMenuItem});
-            resources.ApplyResources(this.menuStrip2, "menuStrip2");
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip2_ItemClicked);
+            this.menuTelaPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.buscarRaçaMenuItem,
+            this.meusFavoritosMenuItem});
+            resources.ApplyResources(this.menuTelaPrincipal, "menuTelaPrincipal");
+            this.menuTelaPrincipal.Name = "menuTelaPrincipal";
             // 
-            // toolStripMenuItem1
+            // buscarRaçaMenuItem
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.buscarRaçaMenuItem.Name = "buscarRaçaMenuItem";
+            resources.ApplyResources(this.buscarRaçaMenuItem, "buscarRaçaMenuItem");
+            this.buscarRaçaMenuItem.Click += new System.EventHandler(this.buscarRaçaMenuItem_Click);
             // 
-            // meusFavoritosToolStripMenuItem
+            // meusFavoritosMenuItem
             // 
-            this.meusFavoritosToolStripMenuItem.Name = "meusFavoritosToolStripMenuItem";
-            resources.ApplyResources(this.meusFavoritosToolStripMenuItem, "meusFavoritosToolStripMenuItem");
+            this.meusFavoritosMenuItem.Name = "meusFavoritosMenuItem";
+            resources.ApplyResources(this.meusFavoritosMenuItem, "meusFavoritosMenuItem");
             // 
             // labelMenuPrincipal
             // 
@@ -84,14 +83,14 @@
             this.Controls.Add(this.labelMenuPrincipal);
             this.Controls.Add(this.labelTextoBemVindo);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.menuStrip2);
+            this.Controls.Add(this.menuTelaPrincipal);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.MainMenuStrip = this.menuStrip2;
+            this.MainMenuStrip = this.menuTelaPrincipal;
             this.Name = "MenuPrincipal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuPrincipal_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.menuStrip2.ResumeLayout(false);
-            this.menuStrip2.PerformLayout();
+            this.menuTelaPrincipal.ResumeLayout(false);
+            this.menuTelaPrincipal.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,9 +101,9 @@
         private PictureBox pictureBox1;
         private Label labelTextoBemVindo;
         private MenuStrip menuStrip1;
-        private MenuStrip menuStrip2;
-        private ToolStripMenuItem toolStripMenuItem1;
-        private ToolStripMenuItem meusFavoritosToolStripMenuItem;
+        private MenuStrip menuTelaPrincipal;
+        private ToolStripMenuItem buscarRaçaMenuItem;
+        private ToolStripMenuItem meusFavoritosMenuItem;
         private Label labelMenuPrincipal;
     }
 }
