@@ -69,6 +69,7 @@
             // 
             this.meusFavoritosMenuItem.Name = "meusFavoritosMenuItem";
             resources.ApplyResources(this.meusFavoritosMenuItem, "meusFavoritosMenuItem");
+            this.meusFavoritosMenuItem.Click += new System.EventHandler(this.meusFavoritosMenuItem_Click);
             // 
             // labelMenuPrincipal
             // 

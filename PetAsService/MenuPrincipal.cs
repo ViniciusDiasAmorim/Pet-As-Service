@@ -20,5 +20,12 @@ namespace PetAsService
             BuscarRacas busca = new BuscarRacas();
             busca.Show();
         }
+
+        private void meusFavoritosMenuItem_Click(object sender, EventArgs e)
+        {
+            Favoritos favoritos = new Favoritos();
+            favoritos.Show();
+
+        }
     }
 }

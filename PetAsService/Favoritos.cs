@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PetAsService
 {
-    public partial class BuscarRacas : Form
+    public partial class Favoritos : Form
     {
-        public BuscarRacas()
+        public Favoritos()
         {
             InitializeComponent();
         }
