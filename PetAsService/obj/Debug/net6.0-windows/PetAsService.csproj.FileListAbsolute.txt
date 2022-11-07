@@ -21,3 +21,5 @@ C:\Users\User\Desktop\Programação\0.0 Portfolio\Pet As Service\Pet-As-Service\
 C:\Users\User\Desktop\Programação\0.0 Portfolio\Pet As Service\Pet-As-Service\PetAsService\obj\Debug\net6.0-windows\PetAsService.Properties.Resources.resources
 C:\Users\User\Desktop\Programação\0.0 Portfolio\Pet As Service\Pet-As-Service\PetAsService\obj\Debug\net6.0-windows\PetAsService.BuscarRacas.resources
 C:\Users\User\Desktop\Programação\0.0 Portfolio\Pet As Service\Pet-As-Service\PetAsService\obj\Debug\net6.0-windows\PetAsService.Favoritos.resources
+C:\Users\User\Desktop\Programação\0.0 Portfolio\Pet As Service\Pet-As-Service\PetAsService\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\User\Desktop\Programação\0.0 Portfolio\Pet As Service\Pet-As-Service\PetAsService\obj\Debug\net6.0-windows\PetAsService.csproj.CopyComplete

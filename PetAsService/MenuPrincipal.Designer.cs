@@ -101,7 +101,6 @@
 
         private PictureBox pictureBox1;
         private Label labelTextoBemVindo;
-        private MenuStrip menuStrip1;
         private MenuStrip menuTelaPrincipal;
         private ToolStripMenuItem buscarRaçaMenuItem;
         private ToolStripMenuItem meusFavoritosMenuItem;
