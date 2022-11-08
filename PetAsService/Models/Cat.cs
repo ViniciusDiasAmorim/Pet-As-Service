@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PetAsService.Models
+﻿namespace PetAsService.Models
 {
     public class Cat
     {
@@ -13,7 +7,5 @@ namespace PetAsService.Models
         public string Temperament { get; set; }
         public string Origin { get; set; }
         public string Description { get; set; }
-
-
     }
 }

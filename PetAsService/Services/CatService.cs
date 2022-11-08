@@ -1,19 +1,15 @@
 ﻿using Newtonsoft.Json;
 using PetAsService.Models;
-using System.Diagnostics;
 
 namespace PetAsService.Services
 {
-    public class CatApi
+    public class CatService
     {
-        public async Task<Cat> GetCat()
+        public async Task<Cat> GetCat(string id)
         {
+            string parametro = id;
 
-            string url = "https://api.thecatapi.com/v1/breeds";
-
-            string id = "beng";
-
-            string parametro = $"/{id}";
+            string url = $"https://api.thecatapi.com/v1/breeds/{id}";
 
             HttpClient client = new HttpClient { BaseAddress = new Uri(url) };
 
@@ -22,9 +18,9 @@ namespace PetAsService.Services
             var content = await response.Content.ReadAsStringAsync();
 
             var cat = JsonConvert.DeserializeObject<Cat>(content);
-
+            
+           
             return cat;
-
         }
     }
 }
