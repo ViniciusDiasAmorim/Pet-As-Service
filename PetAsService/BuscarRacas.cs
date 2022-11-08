@@ -1,4 +1,5 @@
-﻿using PetAsService.Services;
+﻿using PetAsService.Models;
+using PetAsService.Services;
 
 namespace PetAsService
 {
@@ -8,6 +9,8 @@ namespace PetAsService
         {
             InitializeComponent();
         }
+
+        public Cat CatMemory { get; set; }
 
         private async void botaoBuscar_Click(object sender, EventArgs e)
         {
@@ -58,7 +61,23 @@ namespace PetAsService
 
                 resultadoTemperamento.Text = cat.Temperament;
                 resultadoOrigem.Text = cat.Origin;
-                resultadoDescricao.Text = cat.Description;  
+                resultadoDescricao.Text = cat.Description;
+
+                CatMemory = cat;
+            }
+        }
+
+        private async void botaoFavoritar_Click(object sender, EventArgs e)
+        {
+            if (CatMemory != null)
+            {
+                CatService catService = new CatService();
+                var resultado = await catService.FavCat(CatMemory);
+                MessageBox.Show($"{resultado}");
+            }
+            else
+            {
+                MessageBox.Show("Encontre um gatinho para favoritar");
             }
         }
     }

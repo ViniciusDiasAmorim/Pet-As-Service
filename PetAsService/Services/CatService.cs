@@ -1,10 +1,13 @@
 ﻿using Newtonsoft.Json;
 using PetAsService.Models;
+using System.Text;
 
 namespace PetAsService.Services
 {
     public class CatService
     {
+        public string image_id { get; set; }
+        public string sub_id { get; set; }
         public async Task<Cat> GetCat(string id)
         {
             string parametro = id;
@@ -18,8 +21,40 @@ namespace PetAsService.Services
             var content = await response.Content.ReadAsStringAsync();
 
             var cat = JsonConvert.DeserializeObject<Cat>(content);
-           
+
             return cat;
+        }
+
+        public async Task<string> FavCat(Cat cat)
+        {
+            using HttpClient client = new HttpClient();
+
+            string apiKey = "live_2bP4Aft5O3yEca6knhta8iRtWCky03uCofrQr2f6l5R3j98P7WSS6WSlUxjsmOyh";
+
+            var catPost = new CatService()
+            {
+                image_id = $"{cat.ReferenceImageId}",
+                sub_id = $"user-123"
+            };
+
+            var teste = JsonConvert.SerializeObject(catPost);
+
+            var data = new StringContent(teste, Encoding.UTF8, "application/json");
+
+            var url = $"https://api.thecatapi.com/v1/favourites?api_key={apiKey}";
+
+            Console.WriteLine(data.ReadAsStringAsync().Result);
+
+            var response = await client.PostAsync(url, data);
+
+            string result = response.Content.ReadAsStringAsync().Result;
+
+            if(response.IsSuccessStatusCode)
+            {
+                return  $"{cat.Name} favoritado com sucesso !!";
+            }
+
+            return $"Ocorreu um problema em favoritar o {cat.Name} talvez voce ja tenha favoritado ele.";
         }
     }
 }
