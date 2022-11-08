@@ -43,8 +43,6 @@ namespace PetAsService.Services
 
             var url = $"https://api.thecatapi.com/v1/favourites?api_key={apiKey}";
 
-            Console.WriteLine(data.ReadAsStringAsync().Result);
-
             var response = await client.PostAsync(url, data);
 
             string result = response.Content.ReadAsStringAsync().Result;
@@ -55,6 +53,23 @@ namespace PetAsService.Services
             }
 
             return $"Ocorreu um problema em favoritar o {cat.Name} talvez voce ja tenha favoritado ele.";
+        }
+
+        public async Task<List<CatService>> GetFavCat()
+        {
+            string url = "https://api.thecatapi.com/v1/favourites?api_key=live_2bP4Aft5O3yEca6knhta8iRtWCky03uCofrQr2f6l5R3j98P7WSS6WSlUxjsmOyh";
+
+            string apiKey = "api_key=live_2bP4Aft5O3yEca6knhta8iRtWCky03uCofrQr2f6l5R3j98P7WSS6WSlUxjsmOyh";
+
+            HttpClient client = new HttpClient { BaseAddress = new Uri(url) };
+
+            var response = await client.GetAsync(url);
+
+            var content = await response.Content.ReadAsStringAsync();
+
+            var FavsCats = JsonConvert.DeserializeObject<List<CatService>>(content);
+
+            return FavsCats;
         }
     }
 }
