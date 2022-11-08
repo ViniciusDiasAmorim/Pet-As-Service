@@ -1,13 +1,4 @@
 ﻿using PetAsService.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PetAsService
 {
@@ -18,7 +9,7 @@ namespace PetAsService
             InitializeComponent();
         }
 
-        private void botaoBuscar_Click(object sender, EventArgs e)
+        private async void botaoBuscar_Click(object sender, EventArgs e)
         {
 
             if (string.IsNullOrEmpty(comboBoxRacas.Text))
@@ -33,7 +24,7 @@ namespace PetAsService
 
                 for (int i = 0; i < comboBoxRacas.Text.Length; i++)
                 {
-                    if (char.IsWhiteSpace(comboBoxRacas.Text[i]))
+                    if (char.IsWhiteSpace(comboBoxRacas.Text[i]) || comboBoxRacas.Text[i] == '-')
                     {
                         temEspaço = true;
                     }
@@ -48,12 +39,11 @@ namespace PetAsService
                 }
                 else
                 {
-                    query += comboBoxRacas.Text[0];
-
                     for (int i = 1; i < comboBoxRacas.Text.Length; i++)
                     {
-                        if (char.IsWhiteSpace(comboBoxRacas.Text[i]))
+                        if (char.IsWhiteSpace(comboBoxRacas.Text[i]) || comboBoxRacas.Text[i] == '-')
                         {
+                            query += comboBoxRacas.Text[0];
                             query += comboBoxRacas.Text[i + 1];
                             query += comboBoxRacas.Text[i + 2];
                             query += comboBoxRacas.Text[i + 3];
@@ -62,11 +52,13 @@ namespace PetAsService
                     }
                 }
 
-                string x = query;
-
                 CatService catService = new CatService();
 
-                var cat = catService.GetCat(query);
+                var cat = await catService.GetCat(query);
+
+                resultadoTemperamento.Text = cat.Temperament;
+                resultadoOrigem.Text = cat.Origin;
+                resultadoDescricao.Text = cat.Description;  
             }
         }
     }

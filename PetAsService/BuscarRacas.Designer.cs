@@ -89,10 +89,62 @@
             "Birman",
             "Bombay",
             "British Longhair",
-            "British Shorthair"});
+            "British Shorthair",
+            "Burmese",
+            "Burmilla",
+            "California Spangled",
+            "Chanilly-Tiffany",
+            "Chartreux",
+            "Chausie",
+            "Cheetoh",
+            "Colorpoint Shorhair",
+            "Cornish Rex",
+            "Cymric",
+            "Cyprus",
+            "Devon Rex",
+            "Donskoy",
+            "Dragon Li",
+            "Egyptian Mau",
+            "European Burmese",
+            "Exotic Shorthair",
+            "Havana Brown",
+            "Himalayan",
+            "Japanese Bobtail",
+            "Javanese",
+            "Khao Manee",
+            "Korat",
+            "Kurilian",
+            "LaPerm",
+            "Maine Coon",
+            "Malayan",
+            "Manx",
+            "Munchkin",
+            "Nebelung",
+            "Norwegian Forest Cat",
+            "Ocicat",
+            "Oriental",
+            "Persian",
+            "Pixie-bob",
+            "Ragamuffin",
+            "Ragdoll",
+            "Russian Blue",
+            "Savannah",
+            "Scottish Fold",
+            "Selkirk Rex",
+            "Siamese",
+            "Siberian",
+            "Singapura",
+            "Snowshoe",
+            "Somali",
+            "Sphynx",
+            "Tonkinese",
+            "Toyger",
+            "Turkish Angora",
+            "Turkish Van",
+            "York Chocolate"});
             this.comboBoxRacas.Location = new System.Drawing.Point(137, 124);
             this.comboBoxRacas.Name = "comboBoxRacas";
-            this.comboBoxRacas.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxRacas.Size = new System.Drawing.Size(167, 23);
             this.comboBoxRacas.TabIndex = 5;
             // 
             // label5
@@ -106,17 +158,16 @@
             // 
             // resultadoTemperamento
             // 
-            this.resultadoTemperamento.AutoSize = true;
             this.resultadoTemperamento.Location = new System.Drawing.Point(137, 180);
             this.resultadoTemperamento.Name = "resultadoTemperamento";
-            this.resultadoTemperamento.Size = new System.Drawing.Size(59, 15);
+            this.resultadoTemperamento.Size = new System.Drawing.Size(639, 40);
             this.resultadoTemperamento.TabIndex = 7;
             this.resultadoTemperamento.Text = "Resultado";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(19, 227);
+            this.label7.Location = new System.Drawing.Point(19, 243);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 15);
             this.label7.TabIndex = 8;
@@ -124,17 +175,16 @@
             // 
             // resultadoOrigem
             // 
-            this.resultadoOrigem.AutoSize = true;
-            this.resultadoOrigem.Location = new System.Drawing.Point(137, 227);
+            this.resultadoOrigem.Location = new System.Drawing.Point(137, 243);
             this.resultadoOrigem.Name = "resultadoOrigem";
-            this.resultadoOrigem.Size = new System.Drawing.Size(59, 15);
+            this.resultadoOrigem.Size = new System.Drawing.Size(624, 40);
             this.resultadoOrigem.TabIndex = 9;
             this.resultadoOrigem.Text = "Resultado";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(19, 267);
+            this.label9.Location = new System.Drawing.Point(19, 307);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(64, 15);
             this.label9.TabIndex = 10;
@@ -142,16 +192,15 @@
             // 
             // resultadoDescricao
             // 
-            this.resultadoDescricao.AutoSize = true;
-            this.resultadoDescricao.Location = new System.Drawing.Point(137, 267);
+            this.resultadoDescricao.Location = new System.Drawing.Point(137, 307);
             this.resultadoDescricao.Name = "resultadoDescricao";
-            this.resultadoDescricao.Size = new System.Drawing.Size(59, 15);
+            this.resultadoDescricao.Size = new System.Drawing.Size(624, 35);
             this.resultadoDescricao.TabIndex = 11;
             this.resultadoDescricao.Text = "Resultado";
             // 
             // botaoBuscar
             // 
-            this.botaoBuscar.Location = new System.Drawing.Point(19, 329);
+            this.botaoBuscar.Location = new System.Drawing.Point(19, 397);
             this.botaoBuscar.Name = "botaoBuscar";
             this.botaoBuscar.Size = new System.Drawing.Size(75, 23);
             this.botaoBuscar.TabIndex = 12;
@@ -161,7 +210,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(111, 329);
+            this.button2.Location = new System.Drawing.Point(100, 397);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 13;
