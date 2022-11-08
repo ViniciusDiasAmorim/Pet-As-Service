@@ -31,14 +31,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxRacas = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.resultadoTemperamento = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.resultadoOrigem = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.resultadoDescricao = new System.Windows.Forms.Label();
+            this.botaoBuscar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -71,13 +71,29 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Raça :";
             // 
-            // comboBox2
+            // comboBoxRacas
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(137, 124);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 23);
-            this.comboBox2.TabIndex = 5;
+            this.comboBoxRacas.FormattingEnabled = true;
+            this.comboBoxRacas.Items.AddRange(new object[] {
+            "Abyssinian",
+            "Aegean",
+            "American Bobtail",
+            "American Curl",
+            "American Shorthair",
+            "American Wirehair",
+            "Arabian Mau",
+            "Australian Mist",
+            "Balinese",
+            "Bambino",
+            "Bengal",
+            "Birman",
+            "Bombay",
+            "British Longhair",
+            "British Shorthair"});
+            this.comboBoxRacas.Location = new System.Drawing.Point(137, 124);
+            this.comboBoxRacas.Name = "comboBoxRacas";
+            this.comboBoxRacas.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxRacas.TabIndex = 5;
             // 
             // label5
             // 
@@ -88,14 +104,14 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "Temperamento :";
             // 
-            // label6
+            // resultadoTemperamento
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(137, 180);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 15);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Resultado";
+            this.resultadoTemperamento.AutoSize = true;
+            this.resultadoTemperamento.Location = new System.Drawing.Point(137, 180);
+            this.resultadoTemperamento.Name = "resultadoTemperamento";
+            this.resultadoTemperamento.Size = new System.Drawing.Size(59, 15);
+            this.resultadoTemperamento.TabIndex = 7;
+            this.resultadoTemperamento.Text = "Resultado";
             // 
             // label7
             // 
@@ -106,14 +122,14 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "Origem :";
             // 
-            // label8
+            // resultadoOrigem
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(137, 227);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 15);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Resultado";
+            this.resultadoOrigem.AutoSize = true;
+            this.resultadoOrigem.Location = new System.Drawing.Point(137, 227);
+            this.resultadoOrigem.Name = "resultadoOrigem";
+            this.resultadoOrigem.Size = new System.Drawing.Size(59, 15);
+            this.resultadoOrigem.TabIndex = 9;
+            this.resultadoOrigem.Text = "Resultado";
             // 
             // label9
             // 
@@ -124,23 +140,24 @@
             this.label9.TabIndex = 10;
             this.label9.Text = "Descriçao :";
             // 
-            // label10
+            // resultadoDescricao
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(137, 267);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 15);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "Resultado";
+            this.resultadoDescricao.AutoSize = true;
+            this.resultadoDescricao.Location = new System.Drawing.Point(137, 267);
+            this.resultadoDescricao.Name = "resultadoDescricao";
+            this.resultadoDescricao.Size = new System.Drawing.Size(59, 15);
+            this.resultadoDescricao.TabIndex = 11;
+            this.resultadoDescricao.Text = "Resultado";
             // 
-            // button1
+            // botaoBuscar
             // 
-            this.button1.Location = new System.Drawing.Point(19, 329);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.botaoBuscar.Location = new System.Drawing.Point(19, 329);
+            this.botaoBuscar.Name = "botaoBuscar";
+            this.botaoBuscar.Size = new System.Drawing.Size(75, 23);
+            this.botaoBuscar.TabIndex = 12;
+            this.botaoBuscar.Text = "Buscar";
+            this.botaoBuscar.UseVisualStyleBackColor = true;
+            this.botaoBuscar.Click += new System.EventHandler(this.botaoBuscar_Click);
             // 
             // button2
             // 
@@ -157,14 +174,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.botaoBuscar);
+            this.Controls.Add(this.resultadoDescricao);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.resultadoOrigem);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.resultadoTemperamento);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBoxRacas);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -180,14 +197,14 @@
         private Label label1;
         private Label label2;
         private Label label4;
-        private ComboBox comboBox2;
+        private ComboBox comboBoxRacas;
         private Label label5;
-        private Label label6;
+        private Label resultadoTemperamento;
         private Label label7;
-        private Label label8;
+        private Label resultadoOrigem;
         private Label label9;
-        private Label label10;
-        private Button button1;
+        private Label resultadoDescricao;
+        private Button botaoBuscar;
         private Button button2;
     }
 }

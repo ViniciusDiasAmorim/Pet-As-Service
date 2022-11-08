@@ -21,19 +21,6 @@ namespace PetAsService
 
         private async void buscarRaçaMenuItem_Click(object sender, EventArgs e)
         {
-
-            CatService catService = new CatService();
-
-            string id = "tang";
-
-            var x = await catService.GetCat(id);
-
-            var a = x.Id;
-            var b = x.Name;
-            var c = x.Temperament;
-            var f = x.Origin;
-            var d = x.Description;
-            
             BuscarRacas busca = new BuscarRacas();
             busca.Show();
         }

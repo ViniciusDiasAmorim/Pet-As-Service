@@ -18,7 +18,6 @@ namespace PetAsService.Services
             var content = await response.Content.ReadAsStringAsync();
 
             var cat = JsonConvert.DeserializeObject<Cat>(content);
-            
            
             return cat;
         }
