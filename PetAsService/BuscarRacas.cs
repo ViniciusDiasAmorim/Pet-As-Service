@@ -62,6 +62,7 @@ namespace PetAsService
                 resultadoTemperamento.Text = cat.Temperament;
                 resultadoOrigem.Text = cat.Origin;
                 resultadoDescricao.Text = cat.Description;
+                imagemUrl.Load($"https://cdn2.thecatapi.com/images/{cat.ReferenceImageId}.jpg");
 
                 CatMemory = cat;
             }
@@ -79,6 +80,11 @@ namespace PetAsService
             {
                 MessageBox.Show("Encontre um gatinho para favoritar");
             }
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
