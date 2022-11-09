@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.listaFavoritos = new System.Windows.Forms.ListView();
             this.comboBoxFavoritos = new System.Windows.Forms.ComboBox();
+            this.botaoBuscar = new System.Windows.Forms.Button();
+            this.listaFavoritos = new System.Windows.Forms.ListBox();
+            this.botaoExcluir = new System.Windows.Forms.Button();
+            this.imagemFavorito = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.imagemFavorito)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -56,44 +58,70 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Aqui voce encontra seus favoritos.";
             // 
-            // listaFavoritos
-            // 
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "Persa";
-            listViewGroup2.Header = "ListViewGroup";
-            listViewGroup2.Name = "Siames";
-            this.listaFavoritos.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2});
-            this.listaFavoritos.Location = new System.Drawing.Point(28, 160);
-            this.listaFavoritos.Name = "listaFavoritos";
-            this.listaFavoritos.Size = new System.Drawing.Size(302, 278);
-            this.listaFavoritos.TabIndex = 2;
-            this.listaFavoritos.UseCompatibleStateImageBehavior = false;
-            // 
             // comboBoxFavoritos
             // 
             this.comboBoxFavoritos.FormattingEnabled = true;
             this.comboBoxFavoritos.Items.AddRange(new object[] {
-            "Cats",
-            "Dogs"});
+            "Gatos",
+            "Cachorros"});
             this.comboBoxFavoritos.Location = new System.Drawing.Point(39, 119);
             this.comboBoxFavoritos.Name = "comboBoxFavoritos";
             this.comboBoxFavoritos.Size = new System.Drawing.Size(121, 23);
             this.comboBoxFavoritos.TabIndex = 3;
-            this.comboBoxFavoritos.SelectedIndexChanged += new System.EventHandler(this.comboBoxFavoritos_SelectedIndexChanged);
+            // 
+            // botaoBuscar
+            // 
+            this.botaoBuscar.Location = new System.Drawing.Point(176, 118);
+            this.botaoBuscar.Name = "botaoBuscar";
+            this.botaoBuscar.Size = new System.Drawing.Size(97, 23);
+            this.botaoBuscar.TabIndex = 4;
+            this.botaoBuscar.Text = "Buscar";
+            this.botaoBuscar.UseVisualStyleBackColor = true;
+            this.botaoBuscar.Click += new System.EventHandler(this.botaoBuscar_Click);
+            // 
+            // listaFavoritos
+            // 
+            this.listaFavoritos.FormattingEnabled = true;
+            this.listaFavoritos.ItemHeight = 15;
+            this.listaFavoritos.Location = new System.Drawing.Point(39, 174);
+            this.listaFavoritos.Name = "listaFavoritos";
+            this.listaFavoritos.Size = new System.Drawing.Size(234, 214);
+            this.listaFavoritos.TabIndex = 5;
+            this.listaFavoritos.SelectedIndexChanged += new System.EventHandler(this.listaFavoritos_SelectedIndexChanged);
+            // 
+            // botaoExcluir
+            // 
+            this.botaoExcluir.Location = new System.Drawing.Point(39, 409);
+            this.botaoExcluir.Name = "botaoExcluir";
+            this.botaoExcluir.Size = new System.Drawing.Size(124, 28);
+            this.botaoExcluir.TabIndex = 6;
+            this.botaoExcluir.Text = "Excluir";
+            this.botaoExcluir.UseVisualStyleBackColor = true;
+            // 
+            // imagemFavorito
+            // 
+            this.imagemFavorito.Location = new System.Drawing.Point(374, 118);
+            this.imagemFavorito.Name = "imagemFavorito";
+            this.imagemFavorito.Size = new System.Drawing.Size(431, 370);
+            this.imagemFavorito.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imagemFavorito.TabIndex = 7;
+            this.imagemFavorito.TabStop = false;
             // 
             // Favoritos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.comboBoxFavoritos);
+            this.ClientSize = new System.Drawing.Size(817, 500);
+            this.Controls.Add(this.imagemFavorito);
+            this.Controls.Add(this.botaoExcluir);
             this.Controls.Add(this.listaFavoritos);
+            this.Controls.Add(this.botaoBuscar);
+            this.Controls.Add(this.comboBoxFavoritos);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Favoritos";
             this.Text = "Favoritos";
+            ((System.ComponentModel.ISupportInitialize)(this.imagemFavorito)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -103,7 +131,10 @@
 
         private Label label1;
         private Label label2;
-        private ListView listaFavoritos;
         private ComboBox comboBoxFavoritos;
+        private Button botaoBuscar;
+        private ListBox listaFavoritos;
+        private Button botaoExcluir;
+        private PictureBox imagemFavorito;
     }
 }

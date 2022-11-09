@@ -1,6 +1,7 @@
 ﻿using PetAsService.Models;
 using PetAsService.Services;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,23 +19,36 @@ namespace PetAsService
         {
             InitializeComponent();
         }
-
-        private async void comboBoxFavoritos_SelectedIndexChanged(object sender, EventArgs e)
+        private async void botaoBuscar_Click(object sender, EventArgs e)
         {
-            if(comboBoxFavoritos.SelectedIndex == 0)
+            if(string.IsNullOrEmpty(comboBoxFavoritos.Text))
             {
-                MessageBox.Show("Aguarde o carregamento das Informaçoes");
-                CatService catService = new CatService();
-                List<Cat> cats = await catService.GetFavCat();
-
-                MessageBox.Show($"{cats.Count}");
-
-                //foreach(var item in cats)
-                //{
-                //    MessageBox.Show(item.Name);
-                //}
-
+                MessageBox.Show("Selecione uma raça para ver seus favoritos", "Aviso" , MessageBoxButtons.OK , MessageBoxIcon.Warning);
             }
+            else
+            {
+                if (comboBoxFavoritos.SelectedIndex == 0)
+                {
+                    MessageBox.Show(" Clique em Ok e aguarde alguns segundos, o programa ira buscar seus favoritos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    CatService catService = new CatService();
+                   
+                    List<Cat> cats = await catService.GetFavCat();
+
+                    foreach (var item in cats)
+                    {
+                        listaFavoritos.Items.Add(item.Name);
+                    }
+                }
+            }
+        }
+
+        private void listaFavoritos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+               
+                imagemFavorito.Load($"https://cdn2.thecatapi.com/images/ebv.jpg");
+
+                //imagemUrl.Load($"https://cdn2.thecatapi.com/images/{cat.ReferenceImageId}.jpg");
+
         }
     }
 }
