@@ -22,17 +22,19 @@ namespace PetAsService
         }
         private async void botaoBuscar_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(comboBoxFavoritos.Text))
+            if (string.IsNullOrEmpty(comboBoxFavoritos.Text))
             {
-                MessageBox.Show("Selecione uma raça para ver seus favoritos", "Aviso" , MessageBoxButtons.OK , MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione uma raça para ver seus favoritos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
+                listaFavoritos.Items.Clear();
+
                 if (comboBoxFavoritos.SelectedIndex == 0)
                 {
-                    MessageBox.Show("Clique em Ok e aguarde alguns segundos, o programa ira buscar seus favoritos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("CLIQUE EM Ok e aguarde alguns segundos, o programa ira buscar seus favoritos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     CatService catService = new CatService();
-                   
+
                     List<Cat> cats = await catService.GetFavCat();
 
                     foreach (var item in cats)
@@ -49,11 +51,9 @@ namespace PetAsService
         {
             foreach (var item in CatMemory)
             {
-                if(listaFavoritos.SelectedItem == item.Name)
+                if (listaFavoritos.SelectedItem == item.Name)
                 {
                     imagemFavorito.Load($"https://cdn2.thecatapi.com/images/{item.ReferenceImageId}.jpg");
-//                  imagemUrl.Load($"https://cdn2.thecatapi.com/images/{cat.ReferenceImageId}.jpg");
-
                 }
             }
         }

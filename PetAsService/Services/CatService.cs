@@ -8,6 +8,7 @@ namespace PetAsService.Services
     {
         public string image_id { get; set; }
         public string sub_id { get; set; }
+        //Metodo que retorna um gato
         public async Task<Cat> GetCat(string id)
         {
             string parametro = id;
@@ -63,7 +64,7 @@ namespace PetAsService.Services
 
             string url = $"https://api.thecatapi.com/v1/favourites?api_key={apiKey}";
 
-            HttpClient client = new HttpClient { BaseAddress = new Uri(url) };
+            HttpClient client = new HttpClient();
 
             var response = await client.GetAsync(url);
 
@@ -77,13 +78,12 @@ namespace PetAsService.Services
             {
                 string urlGetBreed = $"https://api.thecatapi.com/v1/images/{item.image_id}";
 
-                HttpClient client1 = new HttpClient { BaseAddress = new Uri(urlGetBreed) };
+                var responseGetBreed = await client.GetAsync(urlGetBreed);
 
-                var response1 = await client1.GetAsync(urlGetBreed);
-
-                if (response1.IsSuccessStatusCode)
+                if (responseGetBreed.IsSuccessStatusCode)
                 {
-                    var content1 = await response1.Content.ReadAsStringAsync();
+                    var content1 = await responseGetBreed.Content.ReadAsStringAsync();
+
                     dynamic breed = JsonConvert.DeserializeObject(content1);
 
                     string name = breed.breeds[0].name;
