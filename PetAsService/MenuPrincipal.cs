@@ -29,7 +29,6 @@ namespace PetAsService
         {
             Favoritos favoritos = new Favoritos();
             favoritos.Show();
-
         }
     }
 }

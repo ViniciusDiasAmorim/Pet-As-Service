@@ -174,7 +174,6 @@
             this.label7.Size = new System.Drawing.Size(53, 15);
             this.label7.TabIndex = 8;
             this.label7.Text = "Origem :";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // resultadoOrigem
             // 

@@ -25,6 +25,7 @@ namespace PetAsService.Services
             return cat;
         }
 
+        //Metodo que favorita os gatos
         public async Task<string> FavCat(Cat cat)
         {
             using HttpClient client = new HttpClient();
@@ -55,11 +56,12 @@ namespace PetAsService.Services
             return $"Ocorreu um problema em favoritar o {cat.Name} talvez voce ja tenha favoritado ele.";
         }
 
-        public async Task<List<CatService>> GetFavCat()
+        //Metodo que retorna os gatos
+        public async Task<List<Cat>> GetFavCat()
         {
-            string url = "https://api.thecatapi.com/v1/favourites?api_key=live_2bP4Aft5O3yEca6knhta8iRtWCky03uCofrQr2f6l5R3j98P7WSS6WSlUxjsmOyh";
+            string apiKey = "live_2bP4Aft5O3yEca6knhta8iRtWCky03uCofrQr2f6l5R3j98P7WSS6WSlUxjsmOyh";
 
-            string apiKey = "api_key=live_2bP4Aft5O3yEca6knhta8iRtWCky03uCofrQr2f6l5R3j98P7WSS6WSlUxjsmOyh";
+            string url = $"https://api.thecatapi.com/v1/favourites?api_key={apiKey}";
 
             HttpClient client = new HttpClient { BaseAddress = new Uri(url) };
 
@@ -67,9 +69,41 @@ namespace PetAsService.Services
 
             var content = await response.Content.ReadAsStringAsync();
 
-            var FavsCats = JsonConvert.DeserializeObject<List<CatService>>(content);
+            List<CatService> favoritesCats = JsonConvert.DeserializeObject<List<CatService>>(content);
 
-            return FavsCats;
+            List<Cat> catsForView = new List<Cat>();
+
+            foreach (var item in favoritesCats)
+            {
+                string urlGetBreed = $"https://api.thecatapi.com/v1/images/{item.image_id}";
+
+                HttpClient client1 = new HttpClient { BaseAddress = new Uri(urlGetBreed) };
+
+                var response1 = await client1.GetAsync(urlGetBreed);
+
+                if (response1.IsSuccessStatusCode)
+                {
+                    var content1 = await response1.Content.ReadAsStringAsync();
+                    dynamic breed = JsonConvert.DeserializeObject(content1);
+
+                    string name = breed.breeds[0].name;
+                    string origin = breed.breeds[0].origin;
+                    string temperament = breed.breeds[0].temperament;
+                    string description = breed.breeds[0].description;
+
+                    Cat catFav = new Cat()
+                    {
+                        Id = item.image_id,
+                        Name = name,
+                        Origin = origin,
+                        Temperament = temperament,
+                        Description = description
+                    };
+
+                    catsForView.Add(catFav);
+                }
+            }
+            return catsForView;
         }
     }
 }
