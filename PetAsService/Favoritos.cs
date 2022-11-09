@@ -15,6 +15,7 @@ namespace PetAsService
 {
     public partial class Favoritos : Form
     {
+        public List<Cat> CatMemory { get; set; }
         public Favoritos()
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace PetAsService
             {
                 if (comboBoxFavoritos.SelectedIndex == 0)
                 {
-                    MessageBox.Show(" Clique em Ok e aguarde alguns segundos, o programa ira buscar seus favoritos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Clique em Ok e aguarde alguns segundos, o programa ira buscar seus favoritos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     CatService catService = new CatService();
                    
                     List<Cat> cats = await catService.GetFavCat();
@@ -38,17 +39,23 @@ namespace PetAsService
                     {
                         listaFavoritos.Items.Add(item.Name);
                     }
+
+                    CatMemory = cats;
                 }
             }
         }
 
         private void listaFavoritos_SelectedIndexChanged(object sender, EventArgs e)
         {
-               
-                imagemFavorito.Load($"https://cdn2.thecatapi.com/images/ebv.jpg");
+            foreach (var item in CatMemory)
+            {
+                if(listaFavoritos.SelectedItem == item.Name)
+                {
+                    imagemFavorito.Load($"https://cdn2.thecatapi.com/images/{item.ReferenceImageId}.jpg");
+//                  imagemUrl.Load($"https://cdn2.thecatapi.com/images/{cat.ReferenceImageId}.jpg");
 
-                //imagemUrl.Load($"https://cdn2.thecatapi.com/images/{cat.ReferenceImageId}.jpg");
-
+                }
+            }
         }
     }
 }

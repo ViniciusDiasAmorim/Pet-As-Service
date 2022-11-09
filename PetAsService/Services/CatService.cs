@@ -90,6 +90,7 @@ namespace PetAsService.Services
                     string origin = breed.breeds[0].origin;
                     string temperament = breed.breeds[0].temperament;
                     string description = breed.breeds[0].description;
+                    string imageId = breed.breeds[0].reference_image_id;
 
                     Cat catFav = new Cat()
                     {
@@ -97,7 +98,8 @@ namespace PetAsService.Services
                         Name = name,
                         Origin = origin,
                         Temperament = temperament,
-                        Description = description
+                        Description = description,
+                        ReferenceImageId = imageId
                     };
 
                     catsForView.Add(catFav);
