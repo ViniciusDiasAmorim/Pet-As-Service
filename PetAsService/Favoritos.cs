@@ -33,6 +33,7 @@ namespace PetAsService
                 if (comboBoxFavoritos.SelectedIndex == 0)
                 {
                     MessageBox.Show("CLIQUE EM Ok e aguarde alguns segundos, o programa ira buscar seus favoritos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    
                     CatService catService = new CatService();
 
                     List<Cat> cats = await catService.GetFavCat();
