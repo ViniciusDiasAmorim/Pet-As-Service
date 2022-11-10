@@ -62,8 +62,7 @@
             // 
             this.comboBoxFavoritos.FormattingEnabled = true;
             this.comboBoxFavoritos.Items.AddRange(new object[] {
-            "Gatos",
-            "Cachorros"});
+            "Gatos"});
             this.comboBoxFavoritos.Location = new System.Drawing.Point(39, 119);
             this.comboBoxFavoritos.Name = "comboBoxFavoritos";
             this.comboBoxFavoritos.Size = new System.Drawing.Size(121, 23);
