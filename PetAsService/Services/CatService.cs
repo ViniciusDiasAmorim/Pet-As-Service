@@ -6,8 +6,6 @@ namespace PetAsService.Services
 {
     public class CatService
     {
-        public string image_id { get; set; }
-        public string sub_id { get; set; }
         //Metodo que retorna um gato
         public async Task<Cat> GetCat(string id)
         {
@@ -33,15 +31,15 @@ namespace PetAsService.Services
 
             string apiKey = "live_2bP4Aft5O3yEca6knhta8iRtWCky03uCofrQr2f6l5R3j98P7WSS6WSlUxjsmOyh";
 
-            var catPost = new CatService()
+            var catPost = new FavoriteCat()
             {
-                image_id = $"{cat.ReferenceImageId}",
-                sub_id = $"user-123"
+                ImageId = $"{cat.ReferenceImageId}",
+                SubId = $"teste1"
             };
 
-            var teste = JsonConvert.SerializeObject(catPost);
+            var catJson = JsonConvert.SerializeObject(catPost);
 
-            var data = new StringContent(teste, Encoding.UTF8, "application/json");
+            var data = new StringContent(catJson, Encoding.UTF8, "application/json");
 
             var url = $"https://api.thecatapi.com/v1/favourites?api_key={apiKey}";
 
@@ -49,7 +47,7 @@ namespace PetAsService.Services
 
             string result = response.Content.ReadAsStringAsync().Result;
 
-            if(response.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode)
             {
                 return  $"{cat.Name} favoritado com sucesso !!";
             }
@@ -57,8 +55,8 @@ namespace PetAsService.Services
             return $"Ocorreu um problema em favoritar o {cat.Name} talvez voce ja tenha favoritado ele.";
         }
 
-        //Metodo que retorna os gatos
-        public async Task<List<Cat>> GetFavCat()
+        //Metodo que retorna os gatos favoritos
+        public async Task<List<FavoriteCat>> GetFavCat()
         {
             string apiKey = "live_2bP4Aft5O3yEca6knhta8iRtWCky03uCofrQr2f6l5R3j98P7WSS6WSlUxjsmOyh";
 
@@ -70,42 +68,46 @@ namespace PetAsService.Services
 
             var content = await response.Content.ReadAsStringAsync();
 
-            List<CatService> favoritesCats = JsonConvert.DeserializeObject<List<CatService>>(content);
-
-            List<Cat> catsForView = new List<Cat>();
+            List<FavoriteCat> favoritesCats = JsonConvert.DeserializeObject<List<FavoriteCat>>(content);
 
             foreach (var item in favoritesCats)
             {
-                string urlGetBreed = $"https://api.thecatapi.com/v1/images/{item.image_id}";
+                string urlGetBreed = $"https://api.thecatapi.com/v1/images/{item.ImageId}";
 
                 var responseGetBreed = await client.GetAsync(urlGetBreed);
 
                 if (responseGetBreed.IsSuccessStatusCode)
                 {
-                    var content1 = await responseGetBreed.Content.ReadAsStringAsync();
+                    var contentGetBreed = await responseGetBreed.Content.ReadAsStringAsync();
 
-                    dynamic breed = JsonConvert.DeserializeObject(content1);
+                    dynamic breed = JsonConvert.DeserializeObject(contentGetBreed);
 
                     string name = breed.breeds[0].name;
-                    string origin = breed.breeds[0].origin;
-                    string temperament = breed.breeds[0].temperament;
-                    string description = breed.breeds[0].description;
-                    string imageId = breed.breeds[0].reference_image_id;
 
-                    Cat catFav = new Cat()
-                    {
-                        Id = item.image_id,
-                        Name = name,
-                        Origin = origin,
-                        Temperament = temperament,
-                        Description = description,
-                        ReferenceImageId = imageId
-                    };
-
-                    catsForView.Add(catFav);
+                    item.Name = name;
                 }
             }
-            return catsForView;
+            return favoritesCats;
+        }
+        //Metodo que Deleta um gato favorito
+        public async Task<bool> DeleteFavCat(int id)
+        {
+            HttpClient client = new HttpClient();
+
+            string apiKey = "live_2bP4Aft5O3yEca6knhta8iRtWCky03uCofrQr2f6l5R3j98P7WSS6WSlUxjsmOyh";
+
+            client.DefaultRequestHeaders.Add("x-api-key", apiKey);
+
+            string urlDelete = $"https://api.thecatapi.com/v1/favourites/{id}";
+
+            var responseDelete = await client.DeleteAsync(urlDelete);
+            
+            if(responseDelete.IsSuccessStatusCode)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

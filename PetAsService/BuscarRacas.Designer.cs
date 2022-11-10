@@ -90,7 +90,6 @@
             "Bengal",
             "Birman",
             "Bombay",
-            "British Longhair",
             "British Shorthair",
             "Burmese",
             "Burmilla",
@@ -103,9 +102,7 @@
             "Cornish Rex",
             "Cymric",
             "Cyprus",
-            "Devon Rex",
             "Donskoy",
-            "Dragon Li",
             "Egyptian Mau",
             "European Burmese",
             "Exotic Shorthair",
@@ -122,7 +119,6 @@
             "Manx",
             "Munchkin",
             "Nebelung",
-            "Norwegian Forest Cat",
             "Ocicat",
             "Oriental",
             "Persian",
@@ -148,6 +144,7 @@
             this.comboBoxRacas.Name = "comboBoxRacas";
             this.comboBoxRacas.Size = new System.Drawing.Size(167, 23);
             this.comboBoxRacas.TabIndex = 5;
+            this.comboBoxRacas.SelectedIndexChanged += new System.EventHandler(this.comboBoxRacas_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -202,7 +199,7 @@
             // 
             // botaoBuscar
             // 
-            this.botaoBuscar.Location = new System.Drawing.Point(17, 585);
+            this.botaoBuscar.Location = new System.Drawing.Point(303, 170);
             this.botaoBuscar.Name = "botaoBuscar";
             this.botaoBuscar.Size = new System.Drawing.Size(75, 23);
             this.botaoBuscar.TabIndex = 12;
@@ -212,7 +209,7 @@
             // 
             // botaoFavoritar
             // 
-            this.botaoFavoritar.Location = new System.Drawing.Point(98, 585);
+            this.botaoFavoritar.Location = new System.Drawing.Point(384, 170);
             this.botaoFavoritar.Name = "botaoFavoritar";
             this.botaoFavoritar.Size = new System.Drawing.Size(75, 23);
             this.botaoFavoritar.TabIndex = 13;

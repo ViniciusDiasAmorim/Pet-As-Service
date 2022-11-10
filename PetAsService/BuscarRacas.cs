@@ -51,7 +51,6 @@ namespace PetAsService
                             query += comboBoxRacas.Text[i + 2];
                             query += comboBoxRacas.Text[i + 3];
                         }
-
                     }
                 }
 
@@ -62,7 +61,15 @@ namespace PetAsService
                 resultadoTemperamento.Text = cat.Temperament;
                 resultadoOrigem.Text = cat.Origin;
                 resultadoDescricao.Text = cat.Description;
-                imagemUrl.Load($"https://cdn2.thecatapi.com/images/{cat.ReferenceImageId}.jpg");
+                try
+                {
+                    imagemUrl.Load($"https://cdn2.thecatapi.com/images/{cat.ReferenceImageId}.jpg");
+                }
+                catch
+                {
+                    MessageBox.Show("Nao foi possivel carregar a imagem");
+                }
+                
 
                 CatMemory = cat;
             }
@@ -80,6 +87,13 @@ namespace PetAsService
             {
                 MessageBox.Show("Encontre um gatinho para favoritar");
             }
+        }
+
+        private void comboBoxRacas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            resultadoDescricao.Text = "Resultado";
+            resultadoOrigem.Text = "Resultado";
+            resultadoTemperamento.Text = "Resultado";
         }
     }
 }

@@ -91,12 +91,14 @@
             // 
             // botaoExcluir
             // 
-            this.botaoExcluir.Location = new System.Drawing.Point(39, 409);
+            this.botaoExcluir.Enabled = false;
+            this.botaoExcluir.Location = new System.Drawing.Point(39, 408);
             this.botaoExcluir.Name = "botaoExcluir";
             this.botaoExcluir.Size = new System.Drawing.Size(124, 28);
             this.botaoExcluir.TabIndex = 6;
             this.botaoExcluir.Text = "Excluir";
             this.botaoExcluir.UseVisualStyleBackColor = true;
+            this.botaoExcluir.Click += new System.EventHandler(this.botaoExcluir_Click);
             // 
             // imagemFavorito
             // 
