@@ -19,7 +19,6 @@ namespace PetAsService
             }
             else
             {
-
                 listaFavoritos.Items.Clear();
 
                 if (comboBoxFavoritos.SelectedIndex == 0)

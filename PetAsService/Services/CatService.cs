@@ -27,9 +27,11 @@ namespace PetAsService.Services
         //Metodo que favorita os gatos
         public async Task<string> FavCat(Cat cat)
         {
-            using HttpClient client = new HttpClient();
+            HttpClient client = new HttpClient();
 
             string apiKey = "live_2bP4Aft5O3yEca6knhta8iRtWCky03uCofrQr2f6l5R3j98P7WSS6WSlUxjsmOyh";
+
+            client.DefaultRequestHeaders.Add("x-api-key", apiKey);
 
             var catPost = new FavoriteCat()
             {
@@ -41,7 +43,7 @@ namespace PetAsService.Services
 
             var data = new StringContent(catJson, Encoding.UTF8, "application/json");
 
-            var url = $"https://api.thecatapi.com/v1/favourites?api_key={apiKey}";
+            var url = $"https://api.thecatapi.com/v1/favourites?";
 
             var response = await client.PostAsync(url, data);
 
@@ -60,9 +62,11 @@ namespace PetAsService.Services
         {
             string apiKey = "live_2bP4Aft5O3yEca6knhta8iRtWCky03uCofrQr2f6l5R3j98P7WSS6WSlUxjsmOyh";
 
-            string url = $"https://api.thecatapi.com/v1/favourites?api_key={apiKey}";
+            string url = $"https://api.thecatapi.com/v1/favourites?";
 
             HttpClient client = new HttpClient();
+
+            client.DefaultRequestHeaders.Add("x-api-key", apiKey);
 
             var response = await client.GetAsync(url);
 
